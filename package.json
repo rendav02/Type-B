@@ -1,0 +1,37 @@
+{
+  "name": "type-b",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Type B \u2014 A smarter way to enter text. Chrome Extension (Manifest V3).",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run typecheck && vite build && vite build --config vite.content.config.ts && node scripts/make-docs-build.mjs",
+    "build:fast": "vite build && vite build --config vite.content.config.ts && node scripts/make-docs-build.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "icons": "node scripts/generate-icons.mjs",
+    "test:e2e": "node e2e/run.cjs",
+    "zip": "npm run build && cd dist && zip -r ../type-b-extension.zip . && cd ../dist-docs && zip -r ../type-b-docs-extension.zip ."
+  },
+  "dependencies": {
+    "lucide-react": "^0.460.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.287",
+    "@types/node": "^22.10.1",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "jsdom": "^25.0.1",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11",
+    "vitest": "^2.1.8"
+  }
+}
